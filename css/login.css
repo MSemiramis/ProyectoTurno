@@ -1,0 +1,74 @@
+.form-container{
+    width: 40%;
+    height: 639px;
+    position: relative;
+    left: 0%;
+    background-color: #D5DCEC;
+}
+
+input.username, input.password{
+    width: 70%;
+    height: 45px;
+    outline: 0;
+    border-radius: 8px;
+    border: 0;
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+    top: 35px;
+    left: 15%;
+    color: black;
+    background-color: #D5DCEC;
+    box-shadow: 0 8px 12px rgb(9 30 66 / 15%);
+}
+.login-form{
+    position: relative;
+    top: 130px;
+    width: 85%;
+    left: 38px;
+    height: 360px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 8px 12px rgb(9 30 66 / 15%);
+}
+
+.btn-submit{
+    position: relative;
+    top: 110px;
+    left: 15%;
+    width: 70%;
+    border-radius: 20px;
+    border: 0;
+    background: #222222;
+    color: white;
+    height: 60px;
+    box-shadow: 0 8px 12px rgb(9 30 66 / 15%);
+}
+.btn-submit:hover{
+    background: #686868;
+    transition: 0.25s;
+}
+.btn-registrar{
+    position: relative;
+    top: 110px;
+    left: 15%;
+    width: 70%;
+    border-radius: 20px;
+    border: 0;
+    background: #4CAF50; /* Color verde para indicar crear usuario */
+    color: white;
+    height: 60px;
+    box-shadow: 0 8px 12px rgb(9 30 66 / 15%);
+}
+.btn-registrar:hover{
+    background: #388E3C; /* Cambio de color al pasar el ratón */
+    transition: 0.25s;
+}
+
+.login-img{
+    position: absolute;
+    height: 638px;
+    width: 60%;
+    top: 56px;
+    left: 40%;
+}
