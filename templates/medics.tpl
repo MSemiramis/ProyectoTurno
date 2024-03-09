@@ -30,7 +30,7 @@
 {include file="medicFilterSecondName.tpl"}
 
 <div>
-    <a class="btn btn-primary btn-agregar-medico" href="{BASE_URL}nuevoMedico" role="button">AGREGAR MÉDICO</a>
+    <a class="btn btn-primary btn-agregar-medico" href="{BASE_URL}nuevoMedico" role="button"><img src="templates/img/plus-icon.png"/>AGREGAR MÉDICO</a>
 </div>
 
 

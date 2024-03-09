@@ -1,10 +1,11 @@
 {include file='templates/header.tpl'}
-<link href="css/formulario.css" rel="stylesheet">
+<link href="css/from.css" rel="stylesheet">
 </head>
 
-   <h2>ALTA USUARIO MEDICO:</h2>
 
-   <form class="from-new" method="POST" action="agregarMedico">
+<div class="form-container">
+    <h2>ALTA MEDICO</h2>
+   <form class="from-alta" method="POST" action="agregarMedico">
         <div class="mb-3 mt-2">
             <label for="exampleFormControlInput1" class="form-label">Nombre de usuario</label>
             <input type="text" class="form-control" name="nombre_usuario" id="exampleFormControlInput1" placeholder="Ingrese el nombre de usuario">
@@ -49,5 +50,8 @@
 
 
     </form>
+</div>
 
-    {include file='templates/footer.tpl'}
+<img class="add-img" src="templates\img\user.png" />
+
+{include file='templates/footer.tpl'}

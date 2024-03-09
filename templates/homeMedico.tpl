@@ -3,7 +3,7 @@
 
 <div class="data-container">
     {foreach from=$dataMedico item=$dm}
-        <a href="{BASE_URL}detallesCuenta/{$dm->nro_medico}"><img class="img-medico" src="templates\img\medico.jpg" /></a>
+        <a href="{BASE_URL}detallesCuenta/{$dm->nro_medico}"><img class="img-medico" src="templates\img\medico.png" /></a>
         <h2 class="medico-title">{$dm->nombre} {$dm->apellido}</h2>
     {/foreach}
 </div>

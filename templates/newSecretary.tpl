@@ -1,10 +1,10 @@
 {include file='templates/header.tpl'}
-<link href="css/formulario.css" rel="stylesheet">
+<link href="css/from.css" rel="stylesheet">
 </head>
 
-   <h2>{$title}</h2>
-
-   <form class="from-new" method="POST" action="agregarSecretaria">
+<div class="form-container">
+    <h2>{$title}</h2>
+   <form class="from-alta" method="POST" action="agregarSecretaria">
         <div class="mb-3 mt-2">
             <label for="nombreSecretaria" class="form-label">Nombre </label>
             <input type="text" class="form-control" name="nombre" id="nombreSecretaria" placeholder="Ingrese el nombre">
@@ -25,9 +25,11 @@
            <input type="password" class="form-control" name="contrasenia_secretaria" id="exampleFormControlInput1" placeholder="Ingrese la contraseña">
        </div>
         
-        <button type="submit" class="btn btn-primary mb-3">AGREGAR SECRETARIA</button> 
-
+        <button type="submit" class="btn btn-primary mb-3">AGREGAR SECRETARIA</button>
 
     </form>
+</div>
 
-    {include file='templates/footer.tpl'}
+<img class="add-img" src="templates\img\user.png" />
+
+{include file='templates/footer.tpl'}
