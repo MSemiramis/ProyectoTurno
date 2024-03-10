@@ -4,6 +4,7 @@ require_once './controller/authController.php';
 require_once './controller/medicController.php';
 require_once './controller/patientController.php';
 require_once './controller/secretaryController.php';
+require_once './controller/turnoController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -21,7 +22,7 @@ $medicController = new MedicController();
 $patientController = new PatientController();
 $secretaryController = new SecretaryController();
 $authController = new AuthController();
-$authController = new AuthController();
+$turnoController = new turnoController();
 
 
 
@@ -109,6 +110,15 @@ switch ($params[0]) {
         break;
     case 'detallesCuentaPaciente':
         $patientController->displayDetallesPaciente($params[1]);
+        break;
+    case 'sacarTurno':
+        $turnoController->showNewTurnoForm();
+        break;
+    case 'nuevoTurno':
+        $turnoController->addNewTurno();
+        break;
+    case 'verTurno':
+        $turnoController->showVerTurno($params[1]);;
         break;
     default:
         echo '404 - Página no encontrada';

@@ -48,8 +48,6 @@ class SecretaryController{
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
 
-
-
             $this->model->insertSecretary($nombre, $apellido);
 
             header("Location: " . BASE_URL . "secretarias");

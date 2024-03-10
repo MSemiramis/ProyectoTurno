@@ -100,7 +100,7 @@ CREATE TABLE `turnos_venideros` (
 --
 
 DROP TABLE IF EXISTS `turnos`;
-CREATE TABLE `turnos` (
+CREATE TABLE `turno` (
                                     `nro_turno` int(11) NOT NULL,
                                     `nro_medico` int(11) NOT NULL,
                                     `nro_paciente` int(11) NOT NULL,
@@ -141,7 +141,7 @@ ALTER TABLE `turnos_venideros`
 --
 -- Indexes for table `turnos`--
 --
-ALTER TABLE `turnos`
+ALTER TABLE `turno`
     ADD PRIMARY KEY (`nro_turno`),
     ADD KEY `fk_medico_turno` (`nro_medico`) USING BTREE,
     ADD KEY `fk_paciente_turno` (`nro_paciente`) USING BTREE;
@@ -176,7 +176,7 @@ ALTER TABLE `turnos_venideros`
 --
 -- AUTO_INCREMENT for table `turnos`
 --
-ALTER TABLE `turnos`
+ALTER TABLE `turno`
     MODIFY `nro_turno` int(11) NOT NULL AUTO_INCREMENT;
 
 -- Constraints for dumped tables

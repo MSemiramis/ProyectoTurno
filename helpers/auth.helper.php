@@ -45,7 +45,8 @@ class AuthHelper
     }
 
     public function loginPaciente($userPaciente)
-    { $_SESSION['USER_ID'] = $userPaciente->nro_paciente;
+    {
+        $_SESSION['USER_ID'] = $userPaciente->nro_paciente;
         $_SESSION['USER_NAME'] = $userPaciente->nombre;
     }
 }

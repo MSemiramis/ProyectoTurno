@@ -1,4 +1,4 @@
-include file='templates/header.tpl'}
+{include file='templates/header.tpl'}
 <link href="css/from.css" rel="stylesheet">
 
 </head>
@@ -8,20 +8,23 @@ include file='templates/header.tpl'}
     <form class="from-alta" method="POST" action="nuevoTurno">
         <div class="mb-3 mt-2">
             <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha" required><br><br>
+            <input type="datetime-local" id="fecha" name="fecha_turno" required><br><br>
         </div>
-
         <div class="mb-3">
-            <label for="hora">Hora:</label>
-            <input type="time" id="hora" name="hora" required><br><br>
+            <label for="detalle">detalle:</label>
+            <input type="text" id="detalle" name="detalle" required><br><br>
         </div>
-
-
-
-
-        <button type="submit" class="btn btn-primary mb-3">Guardar</button>
-
+        <select class="form-select mt-2 mb-4" name="nro_medico" aria-label="Default select example">
+            <option selected>seleccione el medico </option>
+            {foreach from=$medicos item=$medico}
+                <option value={$medico->nro_medico}>{$medico->nombre}, {$medico->apellido}</option>
+            {/foreach}
+        </select>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Guardar</button>
+            </div>
     </form>
+
 </div>
 
 
