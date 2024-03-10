@@ -2,12 +2,12 @@
 <link href="css/login.css" rel="stylesheet">
 
 <div class="form-container">
-    <form class="login-form" method="POST" action="loginPaciente">
+    <form class="login-form" method="POST" action="loginPatient">
         <input type="text" class="username" name="dni" placeholder="Número de dni" required></input>
         <button type="submit" class="btn-submit">Ingresar</button>
-        <button  class="btn-submit">Crear cuenta</button>
 
     </form>
+    <a href="nuevoPaciente"><button class="btn-registrar">Crear cuenta</button></a>
 </div>
 
 <img class="login-img" src="templates\img\login-img.png" />

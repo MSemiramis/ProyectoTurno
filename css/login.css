@@ -50,19 +50,15 @@ input.username, input.password{
 }
 .btn-registrar{
     position: relative;
-    top: 110px;
+    top: 90px;
     left: 15%;
-    width: 70%;
+    width: 30%;
     border-radius: 20px;
     border: 0;
-    background: #4CAF50; /* Color verde para indicar crear usuario */
+    background: blue;
     color: white;
     height: 60px;
     box-shadow: 0 8px 12px rgb(9 30 66 / 15%);
-}
-.btn-registrar:hover{
-    background: #388E3C; /* Cambio de color al pasar el ratón */
-    transition: 0.25s;
 }
 
 .login-img{

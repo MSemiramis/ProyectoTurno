@@ -1,15 +1,14 @@
 {include file='templates/header.tpl'}
 <link href="css/from.css" rel="stylesheet">
+
 </head>
-
-
 
 <div class="form-container">
     <h2>ALTA PACIENTE </h2>
-   <form class="from-alta" method="POST" action="agregarPaciente2">
+   <form class="from-alta" method="POST" action="agregarPaciente">
         <div class="mb-3 mt-2">
             <label for="exampleFormControlInput1" class="form-label">DNI del paciente</label>
-            <input type="text" class="form-control" name="dni_paciente" id="exampleFormControlInput1" placeholder="Ingrese su DNI">
+            <input type="text" class="form-control" name="dni" id="exampleFormControlInput1" placeholder="Ingrese su DNI">
         </div>
 
         <div class="mb-3">
@@ -44,7 +43,7 @@
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Número de afiliado</label>
-            <input type="text" class="form-control" name="afiliado" id="exampleFormControlInput1" placeholder="Ingrese su número de afiliado">
+            <input type="text" class="form-control" name="nro-afiliado" id="exampleFormControlInput1" placeholder="Ingrese su número de afiliado">
         </div>
 
         <button type="submit" class="btn btn-primary mb-3">Guardar</button>

@@ -1,12 +1,14 @@
 {include file='templates/header.tpl'}
-<link href="css/medics.css" rel="stylesheet">
+<link href="css/medic.css" rel="stylesheet">
 
 <div class="medico-container">
+
 <h1 class="title">Listado de Médicos</h1>
+
 {foreach from=$medics item=$medico}
     {if (isset($idSecretaria))}
         {if $medico->nro_secretaria != $idSecretaria}
-        <a class="set-medico" href="{BASE_URL}asignarMedico/{$idSecretaria}/{$medico->nro_medico}">
+        <a class="set-medico" href="{BASE_URL}asignarMedico/{$idSecretaria}/{$medico->nro_medico}"><div>
             <div class="data-medico">
                 <span class="nombre-medico">{$medico->nombre_usuario} - {$medico->nombre} {$medico->apellido}</span>
                 <a class="edit-medico" href=""><img src="templates/img/edit-icon.png" /></a>
@@ -27,10 +29,8 @@
 
 {/foreach}
 </div>
-{include file="medicFilterSecondName.tpl"}
 
-<div>
-    <a class="btn btn-primary btn-agregar-medico" href="{BASE_URL}nuevoMedico" role="button"><img src="templates/img/plus-icon.png"/>AGREGAR MÉDICO</a>
+    <a class="btn btn-primary btn-agregar-medico" href="{BASE_URL}nuevoMedico" role="button"><img class="img-btn" src="templates/img/plus-icon.png"/>AGREGAR MÉDICO</a>
 </div>
 
 

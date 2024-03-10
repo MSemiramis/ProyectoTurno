@@ -6,7 +6,7 @@ h1.title {
     position: relative;
     top: 40px;
     left: 37%;
-    color: #6492E8;
+    color:  #0056b3;
 }
 
 div.data-medico {
@@ -55,10 +55,7 @@ a.set-medico:hover{
     text-decoration: none;
     color: black;
 }
-div.medico-container{
-    position: relative;
-    top: 101px;
-}
+
 form{
     width: 23%;
     position: relative;
@@ -75,11 +72,11 @@ form button{
 }
 .btn-agregar-medico{
     position: relative;
-    top: 111px;
-    left: 80%;
+    top: 20px;
     background: #DBDBDB;
+    left: 77%;
     border-radius: 31px;
-    width: 15%;
+    width: 19%;
     height: 50px;
     border: 0;
     font-weight: 700;
@@ -87,10 +84,13 @@ form button{
     line-height: 38px;
     color: rgba(232, 100, 100, 0.82);
 }
-.btn-agregar-medico:hover{
-    color: rgba(232, 100, 100, 0.82);
-    background: #DBDBDB;
+
+.img-btn{
+    position: relative;
+    top: -6px;
+    left: -4px;
 }
+
 .btn-asignar-secretaria{
     position: relative;
     left: 69%;

@@ -3,6 +3,7 @@
     position: absolute;
     left: 40%;
     top: 490px;
+    color: #0056b3;
 }
 .img-medico{
     position: absolute;
@@ -52,7 +53,7 @@
     transition: 0.25s;
     cursor: pointer;
 }
-div.data-medico{
+.data-container {
     width: 57%;
     height: 500px;
     position: absolute;
@@ -62,4 +63,11 @@ div.data-medico{
     border: 0;
     background-color: #D5DCEC;
     box-shadow: 0 8px 12px rgb(9 30 66 / 15%);
+    margin-right: 20px;
+}
+
+.img-detalle {
+    float: left;
+    width: 638px;
+    height: auto;
 }

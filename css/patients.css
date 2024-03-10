@@ -1,0 +1,45 @@
+
+.data-container {
+    position: absolute;
+    width: 41%;
+    height: 504px;
+    margin-bottom: 10px;
+    left: 40%;
+    border: 0;
+    margin-left: 25px;
+    background-color: #D5DCEC;
+    box-shadow: 0 8px 12px rgb(9 30 66 / 15%);
+}
+
+.img-detalle {
+    width: 41%;
+    height: 504px;
+    position: absolute;
+}
+
+.paciente-nombre{
+    text-align: center;
+    color: #0056b3;
+}
+
+.btn{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Tono azul */
+    color: #fff; /* Color del texto */
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-container {
+    text-align: center;
+}
+

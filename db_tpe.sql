@@ -93,6 +93,20 @@ CREATE TABLE `turnos_venideros` (
   `detalles` varchar(400) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `turnos`
+--
+
+DROP TABLE IF EXISTS `turnos`;
+CREATE TABLE `turnos` (
+                                    `nro_turno` int(11) NOT NULL,
+                                    `nro_medico` int(11) NOT NULL,
+                                    `nro_paciente` int(11) NOT NULL,
+                                    `fecha_turno` datetime NOT NULL,
+                                    `detalles` varchar(400) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 --
 -- Indexes for dumped tables
 --
@@ -125,7 +139,14 @@ ALTER TABLE `turnos_venideros`
   ADD KEY `fk_turnos_venideros_nro_medico` (`nro_medico`) USING BTREE;
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indexes for table `turnos`--
+--
+ALTER TABLE `turnos`
+    ADD PRIMARY KEY (`nro_turno`),
+    ADD KEY `fk_medico_turno` (`nro_medico`) USING BTREE,
+    ADD KEY `fk_paciente_turno` (`nro_paciente`) USING BTREE;
+
+--
 --
 
 --
@@ -153,6 +174,11 @@ ALTER TABLE `turnos_venideros`
   MODIFY `nro_turno` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `turnos`
+--
+ALTER TABLE `turnos`
+    MODIFY `nro_turno` int(11) NOT NULL AUTO_INCREMENT;
+
 -- Constraints for dumped tables
 --
 
@@ -167,6 +193,16 @@ ALTER TABLE `medico`
 --
 ALTER TABLE `turnos_venideros`
   ADD CONSTRAINT `turnos_venideros_ibfk_1` FOREIGN KEY (`nro_medico`) REFERENCES `medico` (`nro_medico`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+--
+-- Constraints for table `turnos`
+--
+ALTER TABLE `turnos`
+    ADD CONSTRAINT `medico_turno_ibfk_1` FOREIGN KEY (`nro_medico`) REFERENCES `medico` (`nro_medico`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+ALTER TABLE `turnos`
+    ADD CONSTRAINT `paciente_turno_ibfk_1` FOREIGN KEY (`nro_paciente`) REFERENCES `paciente` (`nro_paciente`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
