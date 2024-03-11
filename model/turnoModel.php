@@ -32,4 +32,15 @@ class TurnoModel
         $query->execute([ $medico, $paciente, $fecha, $detalle]);
     }
 
+    public function obtenerTurnos($nro_paciente = null) {
+        if (isset($nro_paciente)) {
+            $query = $this->db->prepare('SELECT * FROM turno WHERE $nro_paciente = ?');
+            $query->execute([$nro_paciente]);
+            $turnos = $query->fetchAll(PDO::FETCH_OBJ);
+        }
+
+        return $turnos;
+    }
 }
+
+

@@ -118,7 +118,7 @@ switch ($params[0]) {
         $turnoController->addNewTurno();
         break;
     case 'verTurno':
-        $turnoController->showVerTurno($params[1]);;
+        $turnoController->showVerTurno($params[1]);
         break;
     default:
         echo '404 - Página no encontrada';

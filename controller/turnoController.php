@@ -1,7 +1,7 @@
 <?php
 
 require_once 'model/medicModel.php';
-require_once 'model/secretaryModel.php';
+require_once 'model/patientModel.php';
 require_once 'view/medicView.php';
 require_once './helpers/auth.helper.php';
 require_once 'model/turnoModel.php';
@@ -13,14 +13,14 @@ class TurnoController
     private $view;
     private $model;
     private $modelM;
-    private $modelS;
+    private $modelP;
     private $authHelper;
 
     public function __construct()
     {
         $this->model = new TurnoModel();
         $this->modelM = new MedicModel();
-        $this->modelS = new SecretaryModel();
+        $this->modelP = new PatientModel();
         $this->view = new TurnoView();
         $this->authHelper = new AuthHelper();
     }
@@ -50,10 +50,11 @@ class TurnoController
         }
     }
 
-    public function showVerTurno($nro_paciente)
-    {echo "Número de paciente: " . $nro_paciente;
-        $dataTurnos = $this->model->getTurnos($nro_paciente);
-        $this->view->detalleTurno($dataTurnos);
+    public function showVerTurno()
+
+    {
+        $dataTurnos = $this->model->getTurnos();
+        $this->view->obtenerTurnos($dataTurnos);
     }
 
 }

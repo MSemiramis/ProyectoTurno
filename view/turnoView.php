@@ -16,7 +16,7 @@ class TurnoView{
 
     }
 
-    public function detalleTurno($dataTurnos)
+    public function obtenerTurnos($dataTurnos)
     {
         $this->smarty->assign('turnos', $dataTurnos);
         $this->smarty->display('templates/verTurnos.tpl');
