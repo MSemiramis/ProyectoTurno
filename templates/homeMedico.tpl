@@ -6,7 +6,9 @@
         <a href="{BASE_URL}detallesCuenta/{$dm->nro_medico}"><img class="img" src="templates\img\medico.png" /></a>
         <h2 class="title">{$dm->nombre} {$dm->apellido}</h2>
     {/foreach}
+
 </div>
+
 
 
 {include file='templates/footer.tpl'}

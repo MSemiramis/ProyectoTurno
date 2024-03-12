@@ -36,7 +36,6 @@ class TurnoController
     {
         if (!empty($_POST['nro_medico']) && !empty($_SESSION['USER_ID']) && !empty($_POST['fecha_turno']) && !empty($_POST['detalle'])) {
 
-
             $medico = $_POST['nro_medico'];
             $paciente = $_SESSION['USER_ID'];// Este esl numero del paciente asignado en el login
             $fecha = $_POST['fecha_turno'];
@@ -53,8 +52,16 @@ class TurnoController
     public function showVerTurno()
 
     {
-        $dataTurnos = $this->model->getTurnos();
+        $paciente = $_SESSION['USER_ID'];
+        $dataTurnos = $this->model->obtenerTurnos($paciente);
         $this->view->obtenerTurnos($dataTurnos);
+    }
+
+    public function showMedicAgenda()
+    {
+        $medico = $_SESSION['USER_ID'];
+        $dataTurnos = $this->model->agendaTurnosMedico($medico);
+        $this->view->agendaTurnos($dataTurnos);
     }
 
 }

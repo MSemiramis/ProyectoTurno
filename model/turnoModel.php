@@ -32,15 +32,31 @@ class TurnoModel
         $query->execute([ $medico, $paciente, $fecha, $detalle]);
     }
 
-    public function obtenerTurnos($nro_paciente = null) {
-        if (isset($nro_paciente)) {
-            $query = $this->db->prepare('SELECT * FROM turno WHERE $nro_paciente = ?');
+    public function obtenerTurnos($nro_paciente) {
+
+            $query = $this->db->prepare('SELECT t.*,CONCAT(m.nombre, " " , m.apellido) AS nombreApellido_medico
+                                                FROM turno t
+                                                JOIN medico m ON t.nro_medico = m.nro_medico
+                                                WHERE t.nro_paciente = ?');
             $query->execute([$nro_paciente]);
             $turnos = $query->fetchAll(PDO::FETCH_OBJ);
-        }
+
+        return $turnos;
+
+
+    }
+    public function agendaTurnosMedico($nro_medico) {
+echo "numero de medico ".$nro_medico;
+        $query = $this->db->prepare('SELECT t.*,CONCAT(p.nombre, " " , p.apellido) AS nombreApellido_paciente
+                                            FROM turno t
+                                            JOIN paciente p ON t.nro_paciente = p.nro_paciente
+                                            WHERE t.nro_medico = ?');
+        $query->execute([$nro_medico]);
+        $turnos = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $turnos;
     }
+
 }
 
 

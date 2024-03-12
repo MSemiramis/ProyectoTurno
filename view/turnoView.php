@@ -19,7 +19,14 @@ class TurnoView{
     public function obtenerTurnos($dataTurnos)
     {
         $this->smarty->assign('turnos', $dataTurnos);
+        $this->smarty->assign('paciente');
         $this->smarty->display('templates/verTurnos.tpl');
     }
 
+    public function agendaTurnos($dataTurnos)
+    {
+        $this->smarty->assign('turnos', $dataTurnos);
+        $this->smarty->assign('medico');
+        $this->smarty->display('templates/medicAgenda.tpl');
+    }
 }

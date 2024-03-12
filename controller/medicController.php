@@ -105,20 +105,6 @@ class MedicController
         header("Location: " . BASE_URL . "secretarias");
     }
 
-    function showMedicAgenda($nombre_usuario)
-    {
-        if ($nombre_usuario != null) {
-            $medicId = $this->model->getMedicIdByUsername($nombre_usuario);
-            $agenda = $this->model->getMedicAgenda($medicId);
-            if ($agenda != null) {
-                $this->view->listMedicAgenda($agenda);
-            } else {
-                $this->view->listMedicAgenda($agenda = null);
-            }
-        } else {
-            header("Location: " . BASE_URL . "login");
-        }
-    }
 
     public function displayLogin()
     {

@@ -1,16 +1,21 @@
+{include file='templates/header.tpl'}
+<link href="css/.css" rel="stylesheet">
+
 <div class="medico-container">
 
-    <h1 class="title">{{title}}</h1>
-
-    {foreach from=$agenda item=$turno}
-    {if (isset($agenda))}
-        <div class="data-medico">
-            <span class="nombre-medico" dataIdTurno="{$turno->nro_turno}" dataIdMedico="{$turno->nro_medico}"> {$turno->nombre_paciente} - {$turno->fecha_turno} {$medico->tiempo_turno} {$medico->detalles}</span>
-        </div>
+    <h2>Turnos Asociados</h2>
+    {if $turnos}
+        {foreach from=$turnos item=$t}
+            <div class="data-medico">
+                <span class="detalle-turno">{$t->nombreApellido_paciente} {$t->fecha_turno} - {$t->detalle}</span>
+            </div>
+        {/foreach}
     {else}
-        <div class="data-medico">
+        <div class="detalle-turno">
             Este medico no posee turnos venideros.
         </div>
     {/if}
 
 </div>
+
+{include file='templates/footer.tpl'}

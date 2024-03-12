@@ -76,7 +76,7 @@ switch ($params[0]) {
         $medicController->asignarSecretaria($params[1], $params[2]);
         break;
     case 'agendaMedico':
-        $medicController->showMedicAgenda();
+        $turnoController->showMedicAgenda();
         break;
     case 'medicAgenda':
         $medicController->displayMedicsList();
@@ -118,7 +118,7 @@ switch ($params[0]) {
         $turnoController->addNewTurno();
         break;
     case 'verTurno':
-        $turnoController->showVerTurno($params[1]);
+        $turnoController->showVerTurno();
         break;
     default:
         echo '404 - Página no encontrada';

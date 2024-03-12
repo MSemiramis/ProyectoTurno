@@ -7,7 +7,7 @@
         {foreach from=$turnos item=$t}
             {if (isset($turnos))}
                 <div>
-                    <p class="detalle-turno">{$t->nro_medico} {$t->fecha_turno} - {$t->detalle}</p>
+                    <p class="detalle-turno">{$t->nombreApellido_medico} {$t->fecha_turno} - {$t->detalle}</p>
                 </div>
             {else}
                 <div class="detalle-turno">
