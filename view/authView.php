@@ -12,6 +12,6 @@ class AuthView
     }
     function showFormLogin($error = null){
         $this->smarty->assign('error' , $error);
-        $this->smarty->display('templates/newPatient.tpl');
+        $this->smarty->display('templates/loginPaciente.tpl');
     }
 }

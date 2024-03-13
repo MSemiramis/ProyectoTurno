@@ -16,38 +16,23 @@ class AuthHelper
         $_SESSION['USER_NAME'] = $user->nombre_usuario;
     }
 
-    /*public function obtainUser()
-    {
-        $user;
-        $user->nro_medico = $_SESSION['USER_ID'];
-        $user->nombre_usuario =$_SESSION['USER_NAME']; 
-        return $user;
-    }*/
 
-    public function checkLogedIn(){
-        if (empty($_SESSION['USER_ID'])) {
-            header("Location: " . BASE_URL);
-            die();
-        }
+    public function loginPaciente($userPaciente)
+    {
+        $_SESSION['USER_ID'] = $userPaciente->dni;
+        $_SESSION['USER_NAME'] = $userPaciente->nombre;
     }
 
+    public function loginSecretaria($user)
+    {
+        $_SESSION['USER_ID'] = $user->nro_secretaria;
+        $_SESSION['USER_NAME'] = $user->nombre_usuario_secretaria;
+   }
 
     function logout()
     {
         session_destroy();
         header("Location: " . BASE_URL . "main");
     }
-
-    public function loginPaciente($userPaciente)
-    {
-        $_SESSION['USER_ID'] = $userPaciente->nro_paciente;
-        $_SESSION['USER_NAME'] = $userPaciente->nombre;
-    }
-
-    /*public function loginSecretaria($user)
-    {
-        $_SESSION['USER_ID'] = $user->nro_secretaria;
-        $_SESSION['USER_NAME'] = $user->nombre_usuario_secretaria;
-    }*/
 
 }

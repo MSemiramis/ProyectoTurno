@@ -4,6 +4,8 @@
 <div class="secretaria-container">
     <img  class="secretaria-img" src="templates/img/secretaria.jpg"/>
 
+    <a href="agregarTurno"><button class="btn">agregar turno</button></a>
+
     {foreach from=$secretaria item=$s}
      <div class="data-secretaria-particular">
         <h2>Secretaria: {$s->nombre} {$s->apellido}</h2>
@@ -20,9 +22,13 @@
             </div> 
         {/if}
     {/foreach}
+
+
+
 </div>
 
 {/foreach}
+
 
 
 {include file='templates/footer.tpl'} 

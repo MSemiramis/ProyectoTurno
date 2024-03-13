@@ -102,6 +102,9 @@ switch ($params[0]) {
     case 'loginPatient':
        $patientController->loginPaciente();
         break;
+    case 'loginPatient':
+        $patientController->showLogin();  //viene por get
+        break;
     case 'logout':
        $patientController->logout();
         break;

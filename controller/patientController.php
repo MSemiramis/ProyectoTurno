@@ -12,6 +12,7 @@ class PatientController
     private $model;
     private $modelS;
     private $authView;
+    private $authHelper;
 
     public function __construct()
     {
@@ -19,6 +20,7 @@ class PatientController
         $this->model = new PatientModel();
         $this->modelS = new MedicModel();
         $this->view = new PatientView();
+        $this->authView = new AuthView();
         $this->authHelper = new AuthHelper();
     }
 
@@ -26,16 +28,6 @@ class PatientController
     {
         $dataPacientes = $this->model->getPacientes();
         $this->view->showAddPatient($dataPacientes);
-    }
-    function showNewTurnoForm()
-    {
-        $dataturnos = $this->model->getTurnos();
-        $this->view->showAddTurno($dataturnos);
-    }
-
-    function addTurnos()
-    {
-
     }
 
     function addPatient()
@@ -69,6 +61,10 @@ class PatientController
         $this->view->showLoginPaciente();
     }
 
+    public function showLogin(){
+        $this-> authView->showFormLogin();
+    }
+
     public function loginPaciente()
     {
         if (!empty($_POST['dni'])) {
@@ -77,16 +73,17 @@ class PatientController
             if ($userPaciente != null) {
                 $this->authHelper->loginPaciente($userPaciente);
                 header("Location: " . BASE_URL . "home-paciente" . "/" . $userPaciente->dni);
-            } else {
-                $this->view->showLoginPaciente();
-            }
-        } else {
-            $this->authView->showFormLogin('Error en el inicio de sesión.');
 
+            } else {
+                $this->authView->showFormLogin('Intente nuevamente. DNI incorrecto - no regristado');
+            }
+        } else{
+            $this->authView->showFormLogin('Intente nuevamente. DNI incorrecto - no regristado');
         }
+
     }
 
-    public function displayHomePaciente($dni)
+        public function displayHomePaciente($dni)
     {
         if (isset($dni)) {
             $dataPaciente = $this->model->getPatientByDni($dni);

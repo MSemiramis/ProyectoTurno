@@ -51,7 +51,6 @@ CREATE TABLE `medico` (
 
 DROP TABLE IF EXISTS `paciente`;
 CREATE TABLE `paciente` (
-  `nro_paciente` int(11) NOT NULL,
   `dni` int(10) NOT NULL,
   `nombre` varchar(25) NOT NULL,
   `apellido` varchar(50) NOT NULL,
@@ -80,30 +79,14 @@ CREATE TABLE `secretaria` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `turnos_venideros`
---
-
-DROP TABLE IF EXISTS `turnos_venideros`;
-CREATE TABLE `turnos_venideros` (
-  `nro_turno` int(11) NOT NULL,
-  `nro_medico` int(11) NOT NULL,
-  `nro_paciente` int(11) NOT NULL,
-  `nombre_paciente` varchar(50) NOT NULL,
-  `fecha_turno` datetime NOT NULL,
-  `detalles` varchar(400) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `turnos`
+-- Table structure for table `turno`
 --
 
 DROP TABLE IF EXISTS `turnos`;
 CREATE TABLE `turno` (
                                     `nro_turno` int(11) NOT NULL,
                                     `nro_medico` int(11) NOT NULL,
-                                    `nro_paciente` int(11) NOT NULL,
+                                    `dni` int(11) NOT NULL,
                                     `fecha_turno` datetime NOT NULL,
                                     `detalles` varchar(400) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -122,7 +105,7 @@ ALTER TABLE `medico`
 -- Indexes for table `paciente`
 --
 ALTER TABLE `paciente`
-  ADD PRIMARY KEY (`nro_paciente`);
+  ADD PRIMARY KEY (`dni`);
 
 --
 -- Indexes for table `secretaria`
@@ -131,23 +114,12 @@ ALTER TABLE `secretaria`
   ADD PRIMARY KEY (`nro_secretaria`,`nombre_usuario_secretaria`);
 
 --
-
--- Indexes for table `turnos_venideros`
---
-ALTER TABLE `turnos_venideros`
-  ADD PRIMARY KEY (`nro_turno`,`nro_medico`, `nro_paciente`),
-  ADD KEY `fk_turnos_venideros_nro_medico` (`nro_medico`) USING BTREE;
-
---
--- Indexes for table `turnos`--
+-- Indexes for table `turno`--
 --
 ALTER TABLE `turno`
     ADD PRIMARY KEY (`nro_turno`),
     ADD KEY `fk_medico_turno` (`nro_medico`) USING BTREE,
-    ADD KEY `fk_paciente_turno` (`nro_paciente`) USING BTREE;
-
---
---
+    ADD KEY `fk_paciente_turno` (`dni`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for table `medico`
@@ -159,7 +131,7 @@ ALTER TABLE `medico`
 -- AUTO_INCREMENT for table `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `nro_paciente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `dni` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `secretaria`
@@ -167,14 +139,9 @@ ALTER TABLE `paciente`
 ALTER TABLE `secretaria`
   MODIFY `nro_secretaria` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `turnos_venideros`
---
-ALTER TABLE `turnos_venideros`
-  MODIFY `nro_turno` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `turnos`
+-- AUTO_INCREMENT for table `turno`
 --
 ALTER TABLE `turno`
     MODIFY `nro_turno` int(11) NOT NULL AUTO_INCREMENT;
@@ -189,20 +156,15 @@ ALTER TABLE `medico`
   ADD CONSTRAINT `fk_medico_secretaria` FOREIGN KEY (`nro_secretaria`) REFERENCES `secretaria` (`nro_secretaria`) ON DELETE SET NULL;
 
 --
--- Constraints for table `turnos_venideros`
+
+-- Constraints for table `turno`
 --
-ALTER TABLE `turnos_venideros`
-  ADD CONSTRAINT `turnos_venideros_ibfk_1` FOREIGN KEY (`nro_medico`) REFERENCES `medico` (`nro_medico`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
---
--- Constraints for table `turnos`
---
-ALTER TABLE `turnos`
+ALTER TABLE `turno`
     ADD CONSTRAINT `medico_turno_ibfk_1` FOREIGN KEY (`nro_medico`) REFERENCES `medico` (`nro_medico`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
-ALTER TABLE `turnos`
-    ADD CONSTRAINT `paciente_turno_ibfk_1` FOREIGN KEY (`nro_paciente`) REFERENCES `paciente` (`nro_paciente`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `turno`
+    ADD CONSTRAINT `paciente_turno_ibfk_1` FOREIGN KEY (`dni`) REFERENCES `paciente` (`dni`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

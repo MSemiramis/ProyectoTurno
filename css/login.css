@@ -48,10 +48,8 @@ input.username, input.password{
     background: #686868;
     transition: 0.25s;
 }
-.btn-registrar{
-    position: relative;
-    top: 90px;
-    left: 15%;
+.btn-registrar {
+    margin: 20px auto;
     width: 30%;
     border-radius: 20px;
     border: 0;
