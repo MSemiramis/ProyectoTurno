@@ -48,6 +48,12 @@
 
         <button type="submit" class="btn btn-primary mb-3">Guardar</button>
 
+       {if isset($error) && $error}
+           <div class="alert alert-danger mt-1">
+               {$error}
+           </div>
+       {/if}
+
     </form>
 </div>
 

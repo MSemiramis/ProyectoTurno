@@ -96,6 +96,9 @@ switch ($params[0]) {
     case 'detallesCuenta':
         $medicController->displayDetallesMedico($params[1]);
         break;
+    case 'loginMedico':
+        $medicController->showLoginMedico();
+        break;
     case 'loginPaciente':
         $patientController->displayLoginPaciente();
         break;
@@ -103,16 +106,37 @@ switch ($params[0]) {
        $patientController->loginPaciente();
         break;
     case 'loginPatient':
-        $patientController->showLogin();  //viene por get
+        $patientController->showLogin();
         break;
     case 'logout':
-       $patientController->logout();
+        $patientController->logout();
+        break;
+    case 'loginSecretaria':
+        $secretaryController->displayLoginSecretaria();
+        break;
+    case 'loginSecretary':
+        $secretaryController->loginSecretaria();
+        break;
+    case 'home-secretaria':
+        $secretaryController->displayHomeSecretaria($params[1]);
+        break;
+    case 'detallesCuentaSecretaria':
+        $secretaryController->displayDetallesSecretaria($params[1]);
+        break;
+    case 'loginSecretary':
+        $patientController->showLoginSecretary();
+        break;
+    case 'logout':
+        $secretaryController->logout();
         break;
     case 'home-paciente':
        $patientController->displayHomePaciente($params[1]);
         break;
     case 'detallesCuentaPaciente':
         $patientController->displayDetallesPaciente($params[1]);
+        break;
+    case 'nuevoPaciente':
+        $patientController->showAddPatient();//error
         break;
     case 'sacarTurno':
         $turnoController->showNewTurnoForm();
@@ -123,6 +147,11 @@ switch ($params[0]) {
     case 'verTurno':
         $turnoController->showVerTurno();
         break;
+    case 'agregarTurno':
+        $patientController->displayLoginPaciente();
+        break;
+
+
     default:
         echo '404 - Página no encontrada';
         break;

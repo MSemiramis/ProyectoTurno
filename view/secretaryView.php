@@ -28,10 +28,10 @@ class SecretaryView {
         $this->smarty->assign('title', 'Alta Secretaria');
         $this->smarty->display('templates/newSecretary.tpl'); 
     }
-/*
-    public function showLogin()
+
+    public function showLoginSecretaria()
     {
-        $this->smarty->assign('title', 'Login');
+        $this->smarty->assign('title', 'loginSecretaria');
         $this->smarty->display('templates/loginSecretaria.tpl');
     }
 
@@ -47,6 +47,6 @@ class SecretaryView {
         $this->smarty->assign('title', 'Home');
         $this->smarty->assign('dataSecretaria', $dataSecretaria);
         $this->smarty->display('templates/detallesSecretaria.tpl');
-    }*/
+    }
 
 }

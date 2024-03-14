@@ -4,6 +4,7 @@ require_once 'model/secretaryModel.php';
 require_once 'model/medicModel.php';
 require_once 'view/secretaryView.php';
 require_once './helpers/auth.helper.php';
+require_once 'view/authView.php';
 
 class SecretaryController{
     
@@ -11,6 +12,7 @@ class SecretaryController{
     private $model;
     private $modelM;
     private $authHelper;
+    private $authView;
 
     public function __construct()
     {
@@ -18,6 +20,7 @@ class SecretaryController{
         $this->modelM = new MedicModel();
         $this->view = new SecretaryView();
         $this->authHelper = new AuthHelper();
+        $this->authView = new AuthView();
     }
 
     function eraseSecretary($id)
@@ -56,10 +59,10 @@ class SecretaryController{
             header("Location: " . BASE_URL . "nuevaSecretaria");
         }   
     }
-/*
-    public function displayLogin()
+
+    public function displayLoginSecretaria()
     {
-        $this->view->showLogin();
+        $this->view->showLoginSecretaria();
     }
 
     function logout()
@@ -76,11 +79,11 @@ class SecretaryController{
 
             $userSecretaria = $this->model->getUserSecretaria($username);
 
-            if ($userSecretaria && password_verify($password, $userSecretaria->contrasenia)) {
+            if ($userSecretaria && password_verify($password, $userSecretaria->contrasenia_secretaria)) {
                 $this->authHelper->loginSecretaria($userSecretaria);
-                header("Location: " . BASE_URL . "home-Secretaria" . "/" . $userSecretaria->nro_secretaria);
+                header("Location: " . BASE_URL . "home-secretaria" . "/" . $userSecretaria->nro_secretaria);
             } else {
-                $this->view->showLogin();
+
             }
         }
     }
@@ -103,6 +106,7 @@ class SecretaryController{
         } else {
             header("Location: " . BASE_URL . "login");
         }
-    }*/
+    }
+
 }
 

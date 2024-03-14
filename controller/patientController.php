@@ -52,7 +52,8 @@ class PatientController
                 header("Location: " . BASE_URL . "nuevoPaciente");
             }
         } else {
-            $this->authView->showFormLogin('Error en el registro.');
+            $this->authView->showFormAddPatient('Error en el registro.');
+
         }
     }
 
@@ -63,6 +64,9 @@ class PatientController
 
     public function showLogin(){
         $this-> authView->showFormLogin();
+    }
+    public function showAddPatient(){
+        $this-> authView->showFormAddPatient();
     }
 
     public function loginPaciente()

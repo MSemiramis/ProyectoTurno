@@ -23,10 +23,10 @@ class AuthHelper
         $_SESSION['USER_NAME'] = $userPaciente->nombre;
     }
 
-    public function loginSecretaria($user)
+    public function loginSecretaria($userSecretaria)
     {
-        $_SESSION['USER_ID'] = $user->nro_secretaria;
-        $_SESSION['USER_NAME'] = $user->nombre_usuario_secretaria;
+        $_SESSION['USER_ID'] = $userSecretaria->nro_secretaria;
+        $_SESSION['USER_NAME'] = $userSecretaria->nombre_usuario_secretaria;
    }
 
     function logout()

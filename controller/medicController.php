@@ -14,6 +14,7 @@ class MedicController
      * @var AuthHelper
      */
     private $authHelper;
+    private $authView;
 
     public function __construct()
     {
@@ -22,6 +23,7 @@ class MedicController
         $this->modelS = new SecretaryModel();
         $this->view = new MedicView();
         $this->authHelper = new AuthHelper();
+        $this->authView = new AuthView();
     }
 
     function showMain()
@@ -123,8 +125,10 @@ class MedicController
                 $this->authHelper->login($userMedico);
                 header("Location: " . BASE_URL . "home-medico" . "/" . $userMedico->nro_medico);
             } else {
-                $this->view->showLogin();
+
             }
+            $this->authView->showFormLoginMedic('Usuario o contraseña incorrecto');
+
         }
     }
 
@@ -152,29 +156,10 @@ class MedicController
         session_destroy();
         $this->authHelper->logout();
     }
-
-    public function filterByDate($id)
-    {
-        $fechaDesde = date("Y-m-d H:i:s", strtotime($_POST['fecha-desde']));
-        $fechaHasta = date("Y-m-d H:i:s", strtotime($_POST['fecha-hasta']));
-        $parteDia = $_POST['parte-del-dia'];
-
-        if (!empty($id) && !empty($fechaDesde) && !empty($fechaHasta)) {
-            switch ($parteDia) {
-                case 'todos':
-                    $agenda = $this->model->getMedicAgendaAll($id, $fechaDesde, $fechaHasta);
-                    $this->view->listMedicAgenda($agenda);
-                    break;
-                case 'manana':
-                    $agenda = $this->model->getMedicAgendaMorning($id, $fechaDesde, $fechaHasta);
-                    $this->view->listMedicAgenda($agenda);
-                    break;
-                case 'tarde':
-                    $agenda = $this->model->getMedicAgendaAfternoon($id, $fechaDesde, $fechaHasta);
-                    $this->view->listMedicAgenda($agenda);
-                    break;
-            }
-        }
-        
+    public function showLoginMedico(){
+        $this-> authView->showFormLoginMedic();
     }
+
+
+
 }

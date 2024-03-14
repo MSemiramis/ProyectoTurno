@@ -32,15 +32,16 @@ class SecretaryModel
         
         return $secretarias;
     }
-    function insertSecretary($nombre, $apellido)
+    function insertSecretary($nombre, $apellido,$nombre_usuario_secretaria, $contrasenia_secretaria)
     {
-        $query = $this->db->prepare('INSERT INTO secretaria ( nombre, apellido) 
-                                     VALUES (?, ?)');
+        $query = $this->db->prepare('INSERT INTO secretaria (nro_secretaria, nombre, apellido,nombre_usuario_secretaria,contrasenia_secretaria) 
+                                     VALUES (NULL,?, ?,?,?)');
 
-        $query->execute([$nombre, $apellido]);
+        $query->execute([$nombre, $apellido,$nombre_usuario_secretaria, $contrasenia_secretaria]);
     }
 
-    /*function getSecretaryByUsername($nombre_usuario_secretaria) {
+
+    function getSecretaryByUsername($nombre_usuario_secretaria) {
         $query = $this->db->prepare('SELECT * FROM secretaria WHERE nombre_usuario_secretaria = ?');
         $query->execute([$nombre_usuario_secretaria]);
 
@@ -77,7 +78,7 @@ class SecretaryModel
         $secretaria = $query->fetchAll(PDO::FETCH_OBJ);
         
         return $secretaria;
-    }*/
+    }
 
 }
 

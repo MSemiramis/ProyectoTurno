@@ -15,15 +15,15 @@
 
 <div class="medico-container">
     <h2>Medicos Asociados</h2>
+
     {foreach from=$medicos item=$medico}
         {if {$s->nro_secretaria} == {$medico->nro_secretaria} }
             <div>
                 <p class="nombre-medico">{$medico->nombre} {$medico->apellido} - {$medico->especialidad}</p>
             </div> 
         {/if}
+
     {/foreach}
-
-
 
 </div>
 
